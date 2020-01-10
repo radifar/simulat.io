@@ -19,7 +19,7 @@ services:
     env_file: .env
 
   postgres:
-    image: postgres:10-alpine
+    image: postgres:12.1-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data
     env_file: .env
@@ -29,7 +29,7 @@ services:
       context: .
       dockerfile: nginx/Dockerfile
     ports:
-      - "8000:80"
+      - "80:80"
     depends_on:
       - backend
     volumes:
