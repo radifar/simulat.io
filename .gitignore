@@ -3,3 +3,7 @@
 __pycache__
 db.sqlite3
 postgres/
+.env
+frontend/node_modules/
+backend/staticfiles/
+backend/media/
