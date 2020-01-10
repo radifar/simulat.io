@@ -2,6 +2,7 @@ version: '3.3'
 
 volumes:
     simulat.io_data: {}
+    simulat.io_rmq: {}
 
 services:
   backend:
@@ -9,6 +10,7 @@ services:
       context: ./backend
     depends_on:
       - postgres
+      - rabbit-mq
     volumes:
       - ./backend:/app
     command: /start.sh
@@ -45,3 +47,10 @@ services:
       - ./nginx/dev.conf:/etc/nginx/nginx.conf:ro
     logging:
       driver: none
+  
+  rabbit-mq:
+    image: rabbitmq:3.7-management-alpine
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    env_file: .env
