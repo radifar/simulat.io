@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM frolvlad/alpine-miniconda3:python3.7
 
 # python envs
 ENV PYTHONFAULTHANDLER=1 \
@@ -9,10 +9,11 @@ ENV PYTHONFAULTHANDLER=1 \
     PIP_DEFAULT_TIMEOUT=100
 
 # python dependencies
-COPY ./requirements.txt /
-RUN pip install -r ./requirements.txt
+COPY ./environment.yml /
+RUN conda env update -n base -f ./environment.yml
 
-# upload scripts
+# install bash & upload scripts
+RUN apk add --no-cache bash
 COPY ./scripts/entrypoint.sh ./scripts/start.sh ./scripts/gunicorn.sh /
 
 WORKDIR /app
