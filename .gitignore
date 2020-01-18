@@ -7,3 +7,5 @@ postgres/
 frontend/node_modules/
 backend/staticfiles/
 backend/media/
+backend/apps/movies.json
+backend/apps/movies/

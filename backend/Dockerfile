@@ -8,12 +8,14 @@ ENV PYTHONFAULTHANDLER=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=on \
     PIP_DEFAULT_TIMEOUT=100
 
-# python dependencies
+# For psutil
+RUN apk add --no-cache gcc libc-dev linux-headers bash nano
+
+# Conda environment
 COPY ./environment.yml /
 RUN conda env update -n base -f ./environment.yml
 
-# install bash & upload scripts
-RUN apk add --no-cache bash
+# Copy script
 COPY ./scripts/entrypoint.sh ./scripts/start.sh ./scripts/gunicorn.sh /
 
 WORKDIR /app

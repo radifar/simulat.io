@@ -24,17 +24,16 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'ariadne.contrib.django',
 ]
 
 THIRD_PARTY_APPS = [
-    
-    'graphene_django',
-    
     'django_extensions',
 ]
 
 LOCAL_APPS = [
     'apps.users',
+    'apps.movies',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -196,16 +195,16 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # AUTHENTICATION CONFIGURATION
 # ------------------------------------------------------------------------------
-AUTHENTICATION_BACKENDS = [
-    'graphql_jwt.backends.JSONWebTokenBackend',
-    'django.contrib.auth.backends.ModelBackend',
-]
+# AUTHENTICATION_BACKENDS = [
+#     'graphql_jwt.backends.JSONWebTokenBackend',
+#    'django.contrib.auth.backends.ModelBackend',
+# ]
 
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
 
-
+'''
 
 # Graphene
 GRAPHENE = {
@@ -215,7 +214,7 @@ GRAPHENE = {
     ],
 }
 
-if DEBUG:
+# if DEBUG:
     GRAPHENE['MIDDLEWARE'] = [
         'graphene_django.debug.DjangoDebugMiddleware',
         'graphql_jwt.middleware.JSONWebTokenMiddleware',
@@ -228,5 +227,5 @@ GRAPHQL_JWT = {
 }
 
 
-
+'''
 
