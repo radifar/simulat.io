@@ -64,14 +64,11 @@ var VueNumControl = {
 };
 
 var VueOptControl = {
-  props: ["readonly", "emitter", "ikey", "getData", "putData"],
+  props: ["readonly", "emitter", "ikey", "options", "getData", "putData"],
   template:
-    '<select name="cars" :selected="selected" @input="change($event)" @mousewheel.stop="" @pointermove.stop="" @pointerdown.stop="">\
-        <option value="volvo">Volvo</option>\
-        <option value="saab">Saab</option>\
-        <option value="fiat">Fiat</option>\
-        <option value="audi">Audi</option>\
-      </select>',
+    '<select :selected="selected" @input="change($event)" @mousewheel.stop="" @pointermove.stop="" @pointerdown.stop="">\
+        <option v-for="option in options" :value="option.value">{{option.name}}</option>\
+    </select>',
   data() {
     return {
       selected: null
@@ -106,10 +103,10 @@ class NumControl extends Rete.Control {
 }
 
 class OptControl extends Rete.Control {
-  constructor(emitter, key, readonly) {
+  constructor(emitter, key, options, readonly) {
     super(key);
     this.component = VueOptControl;
-    this.props = { emitter, ikey: key, readonly };
+    this.props = { emitter, ikey: key, options: options, readonly };
   }
   setValue(val) {
     this.vueContext.value = val;
@@ -155,6 +152,12 @@ class ProtLigandExtractComponent extends Rete.Component {
   constructor() {
     super("Extract Protein Ligand");
     this.path = ["docking"];
+    this.options = [
+      {value: "mol2", name: "Mol2"},
+      {value: "pdb", name: "PDB"},
+      {value: "pdbqt", name: "PDBQT"},
+      {value: "smiles", name: "SMILES"}
+    ];
   }
 
   builder(node) {
@@ -162,7 +165,7 @@ class ProtLigandExtractComponent extends Rete.Component {
 
     return node
       .addOutput(outProt)
-      .addControl(new OptControl(this.editor, "options"))
+      .addControl(new OptControl(this.editor, "options", this.options))
       .addControl(new NumControl(this.editor, "pdb"));
   }
 }
