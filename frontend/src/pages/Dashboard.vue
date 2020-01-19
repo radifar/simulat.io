@@ -1,24 +1,24 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-12">
-        <div id="rete" class="node-editor">
-          <base-button
+  <div class="row">
+    <div class="col-12">
+      <base-input class= "col-md-4" v-model="workflow.name">
+      </base-input>
+      <div id="rete" class="node-editor">
+        <base-button
+            class="col-md-1"
             type="success"
             size="sm"
-            style="position: absolute; transform: translate(20px, 15px);"
           >Load</base-button>
           <base-button
+            class="col-md-1"
             type="success"
             size="sm"
-            style="position: absolute; transform: translate(90px, 15px);"
           >Save</base-button>
           <base-button
+            class="col-md-1"
             type="success"
             size="sm"
-            style="position: absolute; transform: translate(160px, 15px);"
           >Run</base-button>
-        </div>
       </div>
     </div>
   </div>
@@ -172,6 +172,13 @@ class ProtLigandExtractComponent extends Rete.Component {
 
 export default {
   name: "app",
+  data () {
+    return {
+      workflow: {
+        name: 'untitled_workflow'
+      }
+    }
+  },
   async mounted() {
     var container = document.querySelector("#rete");
     var components = [
@@ -248,6 +255,12 @@ export default {
 };
 </script>
 <style>
+
+.btn-sm {
+  padding: 5px 5px !important;
+  margin: 8px 5px !important;
+}
+
 #rete {
   position: relative;
   overflow: hidden;
