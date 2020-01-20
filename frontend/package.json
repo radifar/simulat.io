@@ -1,6 +1,11 @@
 {
   "name": "simulat.io",
   "version": "0.1.0",
+  "author": {
+    "name": "Muhammad Radifar",
+    "email": "m@radifar-dsl.id",
+    "url": "http://radifar-dsl.id"
+  },
   "private": true,
   "scripts": {
     "serve": "npm i && vue-cli-service serve",
