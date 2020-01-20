@@ -1,6 +1,7 @@
 {
   "name": "simulat.io",
   "version": "0.1.0",
+  "description": "scalable integration of machine learning, unified interoperability, laboratory automation tool",
   "license": "MIT",
   "author": {
     "name": "Muhammad Radifar",
