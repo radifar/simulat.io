@@ -1,6 +1,6 @@
 # Simulat.IO
 
-Make sure you have installed docker and docker-compose, 
+Make sure you have installed docker and docker-compose, and you will need at least 2 GB of free space.
 
 Run `docker-compose up -d --build`
 
