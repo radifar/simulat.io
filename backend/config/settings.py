@@ -24,16 +24,20 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'ariadne.contrib.django',
 ]
 
 THIRD_PARTY_APPS = [
     'django_extensions',
+    'ariadne.contrib.django',
 ]
 
 LOCAL_APPS = [
     'apps.users',
     'apps.movies',
+    'apps.workflow',
+    'apps.moldb',
+    'apps.mol_docking',
+    'apps.mol_dynamics',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
