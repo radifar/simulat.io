@@ -7,6 +7,17 @@
     "email": "m@radifar-dsl.id",
     "url": "http://radifar-dsl.id"
   },
+  "keywords": [
+    "computational chemistry",
+    "molecular modeling",
+    "molecular simulation",
+    "distributed computing",
+    "cloud computing",
+    "scientific workflow system",
+    "visual programming",
+    "node editor",
+    "machine learning"
+  ],
   "private": true,
   "scripts": {
     "serve": "npm i && vue-cli-service serve",
