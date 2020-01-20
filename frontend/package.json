@@ -8,6 +8,10 @@
     "email": "m@radifar-dsl.id",
     "url": "http://radifar-dsl.id"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radifar/simulat.io.git"
+  },
   "keywords": [
     "computational chemistry",
     "molecular modeling",
